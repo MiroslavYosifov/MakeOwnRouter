@@ -7,5 +7,6 @@ export const about = (props) => {
                     <p>mass: ${person.mass}</p>
                 </section>`;
             });
-    document.querySelector('main').innerHTML = `<div>${elements}</div>`;
-}
+            
+    return elements;
+};

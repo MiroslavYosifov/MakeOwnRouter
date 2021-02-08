@@ -1,5 +1,5 @@
 export const projectCreateForm = (props) => {
-    let form = `<form action="/none" >
+    return `<form action="/none" >
                 <label for="name">name</label>
                 <input type="text" name="name" id="name" ><br>
 
@@ -17,5 +17,4 @@ export const projectCreateForm = (props) => {
 
                 <button id="postProject">Post Project</button>
             </form>`;
-    document.querySelector('main').innerHTML = form;
 };

@@ -1,9 +1,8 @@
 import { home } from './home.js'
 import { about} from './about.js'
-import { project } from './project/project.js'
-import { projectCreateForm } from './project/projectCreateForm.js'
+import { projectCreateForm, project } from './project/index.js'
 
-export default {
+export {
     home,
     about,
     project,

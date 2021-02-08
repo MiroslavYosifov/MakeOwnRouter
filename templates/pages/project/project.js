@@ -13,5 +13,5 @@ export const project = (projects) => {
                 </section>`;
             });
 
-    document.querySelector('main').innerHTML = `<div>${elements}</div>`;
+    return elements;
 };

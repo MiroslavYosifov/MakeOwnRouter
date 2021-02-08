@@ -1,15 +1,15 @@
 import starWarsServices from '../services/starwarsServices/starwarsServices.js';
-import renderPageTemplate from '../templates/pages/index.js';
-
+import { home, about } from '../templates/pages/index.js';
+import { layout } from '../templates/layout.js';
 
 const getHomePage = async () => {
     let data = await starWarsServices.getPerson();
-    renderPageTemplate.home(data);
+    layout(home(data));
 };
 
 const getAboutPage = async () => {
     let data = await starWarsServices.listPersons();
-    renderPageTemplate.about(data);
+    layout(about(data));
 };
 
 export default {

@@ -1,6 +1,4 @@
-import { header } from '../templates/header.js';
 import { pageControllers, projectController } from '../controllers/index.js';
-
 
 const getQueryParams = (path) => {
     return Object.fromEntries( path
@@ -33,7 +31,7 @@ export const router = (path) => {
     routes(path, params)
     .then(props => {
         window.location.hash = path;
-        document.querySelector('header').innerHTML = header;
+        // document.querySelector('header').innerHTML = header;
     })
     .catch(err => console.log(err));
 };
