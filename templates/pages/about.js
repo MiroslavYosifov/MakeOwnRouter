@@ -1,6 +1,11 @@
-export const about = () => {
-    document.querySelector('main').innerHTML = `<section>
-    <p>-------orem ipsum dolor sit amet consectetur adipisicing elit. Velit et quos consequuntur quisquam voluptatum, repellendus in enderit.</p>
-    <p>delectus aspernatur maxime, consequatur quidem temporibus dolores tenetur facere nobis? Libero maxime maiores repreh</p>
-    </section>`;
+export const about = (props) => {
+    const elements = props.results.map(person => {
+        return `<section>
+                    <h1>Person</h1>
+                    <p>name: ${person.name}</p>
+                    <p>height: ${person.height}</p>
+                    <p>mass: ${person.mass}</p>
+                </section>`;
+            });
+    document.querySelector('main').innerHTML = `<div>${elements}</div>`;
 }

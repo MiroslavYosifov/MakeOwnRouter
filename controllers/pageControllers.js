@@ -1,4 +1,4 @@
-import starWarsServices from '../services/starwarsServices.js';
+import starWarsServices from '../services/starwarsServices/starwarsServices.js';
 import renderPageTemplate from '../templates/pages/index.js';
 
 
@@ -8,18 +8,11 @@ const getHomePage = async () => {
 };
 
 const getAboutPage = async () => {
-    let data = await starWarsServices.getFirebaseInfo();
-    renderPageTemplate.about();
-};
-
-const getProjectPage = async () => {
     let data = await starWarsServices.listPersons();
-    renderPageTemplate.project(data);
+    renderPageTemplate.about(data);
 };
-
 
 export default {
     getHomePage,
     getAboutPage,
-    getProjectPage
 }

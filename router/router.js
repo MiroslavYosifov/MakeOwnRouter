@@ -1,5 +1,6 @@
 import { header } from '../templates/header.js';
-import { pageControllers } from '../controllers/index.js';
+import { pageControllers, projectController } from '../controllers/index.js';
+
 
 const getQueryParams = (path) => {
     return Object.fromEntries( path
@@ -9,12 +10,20 @@ const getQueryParams = (path) => {
                                 ));
 };
 
+
 const routes = async (currentPath, currentParams) => {
     switch (currentPath) {
-        case '/home': return await pageControllers.getHomePage();
-        case '/about': return await pageControllers.getAboutPage();
-        case '/projects': return await pageControllers.getProjectPage();
-        default: document.querySelector('main').innerHTML = '<div>Not Found</div>'; break;
+        case '/home': 
+            return await pageControllers.getHomePage();
+        case '/about': 
+            return await pageControllers.getAboutPage();
+        case '/projects': 
+            return await projectController.getProjectPage();
+        case '/projects/create': 
+            return await projectController.getCreatePage();
+        default: 
+            document.querySelector('main').innerHTML = '<div>Not Found</div>'; 
+            break;
     }
 };
 
