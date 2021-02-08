@@ -15,7 +15,7 @@ function main (e) {
 document.addEventListener('click', main);
 
 window.addEventListener('load', function(e) {
-    //to fix bug with path
+    //to fix bug with
     const currentPath = location.href.split('http://127.0.0.1:8000/#/').join('/');
     router(currentPath);
 });

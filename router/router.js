@@ -1,46 +1,35 @@
 import { header } from '../templates/header.js';
-import { home, about, projects } from '../templates/pages/index.js';
+import { pageControllers } from '../controllers/index.js';
 
-const routes = (currentPath) => {
+const routes = async (currentPath) => {
     switch (currentPath) {
         case '/home':
-            home();
-            break;
+            return await pageControllers.getHomePage();
         case '/about':
-            about();
-            break;
+            return await pageControllers.getAboutPage();
         case '/projects':
-            projects();
-            break;
+            return await pageControllers.getProjectPage();
         default:
             document.querySelector('main').innerHTML = '<div>Not Found</div>';
             break;
     }
 };
 
-const queryParams = (path) => {
-    let params = Object.fromEntries(
+const getQueryParams = (path) => {
+    return Object.fromEntries(
         path
         .split('?')[1]
         .split('&')
         .map(p => p.split('=')
         ));
-    return params;
 };
 
 export const router = (path) => {
-    
-    if(path.includes('?')) {
-        let params = queryParams(path);
-        routes(path, params);
-    } else {
-        routes(path);
-    }
-
-    
-    window.location.hash = path;
-    document.querySelector('header').innerHTML = header;
-    console.log(path);
-    
+    const params = path.includes('?') ? getQueryParams(path) : undefined;
+    routes(path, params)
+    .then(props => {
+        window.location.hash = path;
+        document.querySelector('header').innerHTML = header;
+    })
+    .catch(err => console.log(err));
 };
-
