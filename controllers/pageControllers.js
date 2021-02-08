@@ -8,12 +8,12 @@ const getHomePage = async () => {
 };
 
 const getAboutPage = async () => {
+    let data = await starWarsServices.getFirebaseInfo();
     renderPageTemplate.about();
 };
 
 const getProjectPage = async () => {
     let data = await starWarsServices.listPersons();
-    console.log(data);
     renderPageTemplate.project(data);
 };
 

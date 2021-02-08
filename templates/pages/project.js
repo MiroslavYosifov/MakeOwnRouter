@@ -1,5 +1,5 @@
 export const project = (props) => {
-    let elements = props.results.map(person => {
+    const elements = props.results.map(person => {
         return `<section>
                     <h1>Person</h1>
                     <p>name: ${person.name}</p>

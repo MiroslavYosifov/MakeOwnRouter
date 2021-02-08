@@ -1,39 +1,25 @@
-const get = async (url, method) => {
-    const res = await fetch(url, {
+const configs = (method, body) => {
+    let configs = {
         method: method,
         mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    });
-    const data = await res.json();
-    console.log(data);
+        // credentials: 'same-origin', // include, *same-origin, omit
+        headers: { 'Content-Type': 'application/json' },
+    }
+
+    if (method !== "GET") configs.body =  JSON.stringify(body);
+
+    return configs;
+};
+
+const AJAX = async (url, configs) => {
+    const res = await fetch( url, { configs }).catch(err => console.log(err));
+    const data = await res.json().catch(err => console.log(err));
     return data;
-}
-
-function post (url, method, body) {
-
-}
-
-function put (url, method, body, id) {
-
-}
-
-function delet (url, method, body, id) {
-
-}
+};
 
 export default {
-    get,
-}
-
-// async (url, method, props) => {
-//     const res = await fetch(url, {
-//         method: method,
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//     });
-//     const data = await res.json();
-//     return data;
-// };
+    get: (url, method = "GET") => AJAX(url, configs(url, method)),
+    post: (url, method = "POST") => AJAX(url, configs(url, method)),
+    put: (url, method = "PUT") => AJAX(url, configs(url, method)),
+    delete: (url, method = "DELETE") => AJAX(url, configs(url, method))
+};
