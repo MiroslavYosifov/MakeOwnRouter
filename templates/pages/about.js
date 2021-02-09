@@ -7,6 +7,6 @@ export const about = (props) => {
                     <p>mass: ${person.mass}</p>
                 </section>`;
             });
-            
-    return elements;
+
+    return elements.join("");
 };

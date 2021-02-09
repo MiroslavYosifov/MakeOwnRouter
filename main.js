@@ -5,6 +5,7 @@ const rootPath = 'http://127.0.0.1:8000/'
 
 function main (e) {
     preventDefaultOnReloadPage(e);
+
     if(e.target.href) {
         const currentPath = e.target.href.split(rootPath).join('/');
         router(currentPath)

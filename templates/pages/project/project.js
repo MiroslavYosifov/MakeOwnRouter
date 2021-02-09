@@ -1,17 +1,12 @@
-export const project = (projects) => {
-    const elements = Object.keys(projects).map(key => {
-        return `<section id="${key}">
-                    <h1>${key}</h1>
-                    <h2>project name: ${projects[key].name}</h2>
-                    <p>imageUrl: ${projects[key].imageUrl}</p>
-                    <p>githubUrl: ${projects[key].githubUrl}</p>
-                    <p>projectUrl: ${projects[key].projectUrl}</p>
-                    <p>descripion: ${projects[key].description}</p>
-                    <button>Details</button>
-                    <button>Delete</button>
-                    <button>Edit</button>
+export const project = (project, id, page) => {
+        return `<section>
+                    <h1>${id}</h1>
+                    <h2>project name: ${project.name}</h2>
+                    <p>imageUrl: ${project.imageUrl}</p>
+                    <p>githubUrl: ${project.githubUrl}</p>
+                    <p>projectUrl: ${project.projectUrl}</p>
+                    <p>descripion: ${project.description}</p>
+                    <button id=${id}>Details</button>
+                    ${ page === "details-page" ? "<button id=${id}>Edit</button> <button id=${id}>Delete</button>" : '' }
                 </section>`;
-            });
-
-    return elements;
 };

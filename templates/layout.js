@@ -4,7 +4,7 @@ export const layout = (body) => {
     let wrapper = `
         ${header()} 
         ${body}
-        ${footer()} `;
+        ${footer()}`;
 
     document.querySelector('body').innerHTML = `<div class="wrapper">${wrapper}</div>`
 };

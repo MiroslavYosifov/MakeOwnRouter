@@ -1,7 +1,9 @@
-import { project } from './project.js';
+import { listProjects } from './listProjects.js';
 import { projectCreateForm } from './projectCreateForm.js';
+import { project } from './project.js';
 
 export {
-    project,
-    projectCreateForm
+    listProjects,
+    projectCreateForm,
+    project
 }

@@ -1,37 +1,31 @@
 import { pageControllers, projectController } from '../controllers/index.js';
+import { getQueryParams, getPathId } from '../helpers/helpers.js';
 
-const getQueryParams = (path) => {
-    return Object.fromEntries( path
-                                .split('?')[1]
-                                .split('&')
-                                .map(p => p.split('=')
-                                ));
-};
-
-
-const routes = async (currentPath, currentParams) => {
-    switch (currentPath) {
+const routes = async (path, params, id) => {
+    switch (path) {
         case '/home': 
             return await pageControllers.getHomePage();
         case '/about': 
             return await pageControllers.getAboutPage();
         case '/projects': 
             return await projectController.getProjectPage();
+        case `/projects/:id${id}`: 
+            return await projectController.getDetailPage(id);
         case '/projects/create': 
             return await projectController.getCreatePage();
         default: 
-            document.querySelector('main').innerHTML = '<div>Not Found</div>'; 
-            break;
+        return await pageControllers.getNotFoundPage();
     }
 };
 
 export const router = (path) => {
-    const params = path.includes('?') ? getQueryParams(path) : undefined;
     
-    routes(path, params)
+    const params = getQueryParams(path);
+    const id = getPathId(path);
+
+    routes(path, params, id)
     .then(props => {
         window.location.hash = path;
-        // document.querySelector('header').innerHTML = header;
     })
     .catch(err => console.log(err));
 };
