@@ -16,8 +16,8 @@ async function updatedProject () {
  
 };
 
-async function deleteProject () {
-
+async function deleteProject (id) {
+    return await AJAX.delete(`https://myblog-60f10-default-rtdb.firebaseio.com/projects/${id}/.json`);
 };
 
 export default {

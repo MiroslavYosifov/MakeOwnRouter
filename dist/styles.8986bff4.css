@@ -1,0 +1,31 @@
+body {
+    padding: 0 2em;
+    margin: 0;
+}
+
+.navigation {
+    background: gray;
+}
+
+.navigation ul {
+    display: flex;
+}
+
+.navigation ul li {
+    list-style: none;
+    margin: 0.4em;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+
+button:hover {
+    cursor: pointer;
+}
+
+/*# sourceMappingURL=/styles.8986bff4.css.map */

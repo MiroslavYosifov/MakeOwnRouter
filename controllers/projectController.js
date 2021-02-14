@@ -4,12 +4,13 @@ import { listProjects, projectCreateForm, project } from '../templates/pages/ind
 import { layout } from '../templates/layout.js';
 import { getFormData } from '../helpers/helpers.js';
 
+// To change buttons with a tags
 async function getProjectPage () {
 
     let data = await firebaseServices.getProjects();
 
     layout(listProjects(data));
-
+    
     document.getElementById('ctx-projects').addEventListener('click', function(e) {
         const id = e.target.getAttribute('id');
         router(`/projects/:id${id}`);
@@ -19,6 +20,11 @@ async function getProjectPage () {
 async function getDetailPage(id) {
     const data = await firebaseServices.getProject(id);
     layout(project(data, id, "details-page"));
+
+    document.getElementById("delete" + id).addEventListener('click', async function(e) {
+        await firebaseServices.deleteProject(id);
+        router('/projects');
+    });
 }
 
 async function getCreatePage () {

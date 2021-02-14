@@ -24,7 +24,6 @@ export function getQueryParams (path) {
     } else {
         return undefined;
     }
-    
 };
 
 export function getFormData (e) {
