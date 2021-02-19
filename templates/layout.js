@@ -1,6 +1,6 @@
 import { header, footer } from './shared/index.js';
 
-export const layout = (body) => {
+export const layout = async (body) => {
     let wrapper = `
         ${header()} 
         ${body}

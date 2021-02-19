@@ -27,3 +27,70 @@ body {
 button:hover {
     cursor: pointer;
 }
+
+
+/* GAME STYLES */
+
+canvas {
+    box-sizing: border-box;
+    display: block;
+    color: wheat;
+    width: 100%;
+}
+
+header .title {
+    font-size: 4em;
+    color: green;
+    font-weight: bold;
+}
+
+.main-game-content {
+    width: 60%;
+    margin: 0 auto;
+    
+}
+
+.main-game-content header {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    color: wheat;;
+}
+
+.main-game-content header h1 {
+    margin-right: auto;
+}
+
+.main-game-content header button {
+    background: rgb(100, 100, 100);
+    color: wheat;
+    border: 2px solid black;
+    border-right: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    width: 8em;
+}
+
+.main-game-content header button:hover {
+    background: wheat;
+    color: rgb(100, 100, 100);;
+    cursor: pointer;
+}
+
+.main-game-content .game-wrapper {
+    width: 100%;
+    position: relative;
+    border: 2px solid wheat;
+}
+
+.main-game-content .game-wrapper .module-message-content {
+    display: none;
+    position: absolute;
+    text-align: center;
+    background: wheat;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+}
