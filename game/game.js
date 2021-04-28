@@ -27,12 +27,12 @@ export class Game {
             this.snake.getDirection(event);
         });
         
-        const frames = 10;
+        const frames = 1;
         setInterval(() => {
             this.playground.colorRect();
             this.prey.colorRect();
             this.snake.drawSnake();
-
+            
             if(!this.navigation.isGameStarted) {
                 if(this.snake.isDeath()) {
                     this.navigation.gameOver();

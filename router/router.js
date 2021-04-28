@@ -1,20 +1,19 @@
 import { pageControllers, projectController } from '../controllers/index.js';
 import { getQueryParams, getPathId } from '../helpers/helpers.js';
 
-const pathDomain = `https://hopeful-lovelace-afd729.netlify.app`;
-// const pathDomain =  "";
-// const pathLocalhost = "http://192.168.1.100:8000";
+// const pathDomain = `https://hopeful-lovelace-afd729.netlify.app`;
+const pathDomain =  "";
 
 const routes = async (path, params, id) => {
     console.log(path);
     switch (path) {
-        case `${pathDomain}/`: 
+        case `${pathDomain}/home`: 
             return await pageControllers.getHomePage();
         case `${pathDomain}/about`: 
             return await pageControllers.getAboutPage();
         case `${pathDomain}/game`: 
             return await pageControllers.getGamePage();
-        case `${pathDomain}/portfolio`: 
+        case `${pathDomain}/projects`: 
             return await projectController.getProjectPage();
         case `${pathDomain}/projects/:id${id}`: 
             return await projectController.getDetailPage(id);

@@ -8,7 +8,7 @@ import { getFormData } from '../helpers/helpers.js';
 async function getProjectPage () {
 
     let data = await firebaseServices.getProjects();
-
+    
     layout(listProjects(data));
     
     document.getElementById('ctx-projects').addEventListener('click', function(e) {

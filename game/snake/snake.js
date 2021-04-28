@@ -16,9 +16,11 @@ export class Snake {
       this.canvasContext = this.canvas.getContext('2d');
   };
 
-  drawSnake () {
-    this.changeDirection();
-    for (let index = 0; index <  this.tail.length; index++) {
+  async drawSnake () {
+
+    await this.changeDirection();
+
+    for (let index = 0; index < this.tail.length; index++) {
       this.canvasContext.fillStyle = index % 2 === 0 ? 'purple' : 'green';  
       this.canvasContext.fillRect(this.tail[index].x, this.tail[index].y, this.width, this.height);  
       this.canvasContext.strokeRect(this.tail[index].x, this.tail[index].y, this.width, this.height);
@@ -81,7 +83,7 @@ export class Snake {
     this.eventKey = event.key;
   }
 
-  changeDirection(event) {
+  async changeDirection() {
     if(this.eventKey) {
       if (this.eventKey === "ArrowLeft" && this.currentDirection !== "ArrowRight" && this.dX !== -1) {
         this.dX = -1;
@@ -110,6 +112,7 @@ export class Snake {
         this.currentDirection = this.eventKey;
         console.log("ArrowDown");
       }
+
     }
   };
 }

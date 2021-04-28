@@ -16,7 +16,6 @@ async function getAboutPage () {
 };
 
 async function getGamePage() {
-    
     layout(snakeGame());
     new Game().render();
 };
