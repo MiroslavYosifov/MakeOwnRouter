@@ -25,6 +25,7 @@ export class Snake {
       this.canvasContext.fillRect(this.tail[index].x, this.tail[index].y, this.width, this.height);  
       this.canvasContext.strokeRect(this.tail[index].x, this.tail[index].y, this.width, this.height);
     }
+    
   };
 
   updatedSnake() {
